@@ -1,0 +1,33 @@
+
+:root{--red:#ed172a;--black:#0a0a0d;--bg:#0a0a0d;--muted:#bbb}
+body{background:#0b0b0d;color:#f6f6f6}
+.top{background:#09090a;border-bottom:1px solid #29292d}
+.top nav a:hover{color:#ff263e}
+.hero-v3{min-height:490px;display:grid;grid-template-columns:43% 57%;padding:0 max(3%,calc((100vw - 1400px)/2));background:radial-gradient(ellipse at 0 50%,#4a0c17 0%,#10090d 46%,#09090b 85%);overflow:hidden;align-items:center;gap:0}
+.hero-v3 .hero-mascot{height:100%;max-height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-v3 .hero-mascot img{width:100%;height:100%;object-fit:cover;object-position:left center;filter:drop-shadow(0 0 14px #be142455)}
+.hero-v3 .hero-copy{max-width:none;padding:35px 20px 35px 35px;position:relative;z-index:1}
+.hero-v3 h1{font-size:clamp(44px,5.5vw,85px);line-height:1.02;letter-spacing:-2px;margin:12px 0 20px;font-weight:900}
+.hero-v3 h1 em{color:#ff2039;font-style:normal;text-shadow:0 4px 0 #50000b}
+.hero-v3 .hero-copy p{font-size:clamp(17px,1.7vw,25px);max-width:650px;color:#f6f6f6}
+.hero-v3 .eyebrow{color:#ff5969}
+.hero-v3 .hero-points{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-v3 .hero-points span{background:#f7f7f7;color:#171719;border-radius:7px;padding:11px 14px;font-weight:800;font-size:13px}
+.hero-v3 .secondary{color:#fff;border-color:#666}
+.intro{background:#870512;color:#fff}
+.catalog,.about{background:#0c0c0e;color:#fff}
+.section-head p,.about p,.catalog-note{color:#bbb}
+.category-tile{background:#1b1b1f!important;color:white!important;border:1px solid #35353b!important;overflow:hidden}
+.category-tile strong{color:#fff}
+.category-tile span{color:#ff6b78}
+.category-tile:hover{border-color:#fa2339!important;transform:translateY(-4px)}
+.product{background:#1b1b1f;color:#fff;border-color:#38383c}
+.product-body p{color:#c2c2c5}
+.product-bottom span{color:#ccc}
+.custom{background:linear-gradient(120deg,#27070d,#130d10);color:#fff}
+.custom p{color:#ddd}
+.about-cards>div{background:#1c1c20;color:#fff;border:1px solid #333}
+footer{background:#070708;color:#fff}
+.search input{color:#111}
+.catalog-back button{background:#ed172a;color:white;border:0;border-radius:8px;padding:10px 15px}
+@media(max-width:760px){.hero-v3{grid-template-columns:1fr;min-height:auto;padding:0}.hero-v3 .hero-mascot{height:290px}.hero-v3 .hero-mascot img{object-position:center 20%}.hero-v3 .hero-copy{padding:22px 22px 38px}.hero-v3 h1{font-size:48px}.hero-v3 .hero-points span{font-size:11px;padding:9px}.top nav{display:none}}

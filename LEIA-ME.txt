@@ -1,0 +1,4 @@
+ACHADINHO DOS ATERZÃOS — V3
+Abra index.html para testar. Para publicar na Vercel envie o ZIP.
+Achi: imagem recortada da prévia visual aprovada; fotos do catálogo são demonstrativas.
+Configure o WhatsApp oficial em config.js antes de divulgar.

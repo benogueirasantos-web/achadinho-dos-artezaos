@@ -13,7 +13,7 @@ window.PRODUTOS = [
 {id:'chaveiro-02',preco:8,image:'imagens/referencia-04.webp',nome:'Chaveiro de estilo alternativo',categoria:'Chaveiros',descricao:'Seu nome ou ideia em um chaveiro.',emoji:'✧',cor:'#d8ccff'},
 {id:'marca-01',preco:5,image:'imagens/referencia-05.webp',nome:'Marca-página artesanal',categoria:'Marca-páginas',descricao:'Para deixar a leitura mais divertida.',emoji:'▤',cor:'#c9f3db'},
 {id:'personal-01',preco:30,image:'imagens/referencia-06.webp',nome:'Caneca personalizada',categoria:'Personalizados',descricao:'Caneca personalizada sob encomenda; confirme a arte e a disponibilidade.',emoji:'♡',cor:'#ffd9b8'}
-,{id:'poster-v7',preco:8,image:'imagens/poster-v7.svg',nome:'Pôster A4',categoria:'Pôsteres',descricao:'Pôster em tamanho A4; arte e disponibilidade sob consulta.',emoji:'▧',cor:'#ffd4da'}
-,{id:'ecobag-v7',preco:25,image:'imagens/ecobag-v7.svg',nome:'Ecobag personalizada',categoria:'Personalizados',descricao:'Ecobag personalizada sob encomenda.',emoji:'▣',cor:'#f8c2d0'}
-,{id:'impressao-v7',preco:1,image:'imagens/impressao-v7.svg',nome:'Impressão / Xerox A4',categoria:'Impressões',descricao:'Preço por página A4; consulte condições de impressão.',emoji:'▤',cor:'#f7c7d5'}
+,{id:'poster-v7',preco:8,image:'imagens/posteres-decorativos-v8.webp',nome:'Pôster A4 — inspiração de decoração',categoria:'Pôsteres',descricao:'Imagem de referência de pôsteres decorativos. Modelos, direitos de uso e disponibilidade sob consulta.',emoji:'▧',cor:'#ffd4da'}
+,{id:'ecobag-v7',preco:25,image:'imagens/ecobag-rock-star-v8.webp',nome:'Ecobag personalizada — inspiração Rock Star',categoria:'Personalizados',descricao:'Imagem ilustrativa de ecobag Rock Star. Arte, produção e disponibilidade sob consulta.',emoji:'▣',cor:'#f8c2d0'}
+,{id:'impressao-v7',preco:1,image:'imagens/impressora-referencia-v8.webp',nome:'Impressão / Xerox A4 — serviço',categoria:'Impressões',descricao:'Foto ilustrativa de impressora. Preço de referência por página A4; consulte condições de impressão.',emoji:'▤',cor:'#f7c7d5'}
 ];

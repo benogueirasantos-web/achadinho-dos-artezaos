@@ -1,0 +1,10 @@
+ACHADINHO DOS ATERZÃOS — V8
+
+Novidades: três imagens enviadas para ilustrar ecobag, pôsteres e serviço de impressão.
+Mantidos: Achi interativo gratuito, sacola com cálculo automático, catálogo, preços de referência e demais imagens da V7.
+
+IMPORTANTE: as fotos são referências visuais, não prova de produtos em estoque ou de fabricação própria. Verifique direitos de uso antes de publicar imagens de terceiros.
+
+INSTALAÇÃO: envie os ARQUIVOS E PASTAS dentro desta pasta para a raiz do mesmo repositório GitHub. Preserve os demais arquivos do repositório. Confirme o commit, aguarde o deploy na Vercel e teste as três categorias.
+
+WhatsApp: configure o número verdadeiro em config.js.

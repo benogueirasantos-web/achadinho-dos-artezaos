@@ -1,0 +1,4 @@
+ACHI VX1 — Sacola inteligente + total destacado em preto + bolinha do Achi arrastável + galeria de conceitos visuais da loja.
+As imagens são conceitos, não fotografias reais; substitua quando tiver fotos reais.
+Não publicar ZIP diretamente: extrair e enviar conteúdo ao GitHub.
+WhatsApp oficial deve ser configurado em config.js.

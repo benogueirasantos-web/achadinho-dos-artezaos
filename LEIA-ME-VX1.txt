@@ -1,0 +1,7 @@
+ACHI VX1 — Sacola Inteligente
+
+Melhorias: quantidades com limite, remover item, confirmação para limpar, detalhes de cada produto, imagens na sacola, resumo do pedido e botão copiar. Preserva chat e lore da VX.
+
+IMPORTANTE: config.js ainda contém whatsapp vazio. Preencha SOMENTE com o número oficial para habilitar o envio por WhatsApp. O botão copiar pedido funciona sem número cadastrado.
+
+Envie o CONTEÚDO extraído da pasta ao GitHub, substituindo os arquivos existentes.

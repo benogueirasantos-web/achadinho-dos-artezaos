@@ -1,0 +1,4 @@
+V10 — Achi com diálogos ampliados.
+Substitua os arquivos da V9 pelos da V10 no mesmo repositório.
+Achi permanece gratuito, com respostas programadas; não é IA generativa.
+Não confirma estoque, frete, descontos ou prazos.

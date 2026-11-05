@@ -1,0 +1,7 @@
+ACHI VX — O VIAJANTE DE ATERIA
+
+Versão baseada na V10. Inclui seção da lore no site, 5 capítulos no chat, sete fragmentos, Chave Vermelha, Sala dos Achados, reconhecimento de perguntas da história e botão para abrir a narrativa. Preserva catálogo, imagens e sacola.
+
+Meta de 70.000 respostas e variações: PLANEJAMENTO, NÃO IMPLEMENTADA. O chatbot continua com respostas programadas, sem IA generativa ou API paga.
+
+INSTALAÇÃO: Extraia o ZIP e envie os arquivos e pastas extraídos para a raiz do mesmo repositório GitHub, substituindo os existentes. A publicação na Vercel depende do deploy do repositório.

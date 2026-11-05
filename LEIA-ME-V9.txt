@@ -1,0 +1,1 @@
+V9: Achi com mais diálogos, variações de respostas, perguntas de continuidade e limites claros. Mantém os arquivos da V8. Não é IA generativa; não envia pedidos automaticamente. Envie o conteúdo desta pasta à raiz do repositório GitHub. Confira preços e imagens antes de publicar.

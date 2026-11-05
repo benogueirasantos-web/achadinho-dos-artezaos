@@ -1,0 +1,7 @@
+ACHADINHO DOS ATERZÃOS — V7
+
+Inclui Achi interativo gratuito, preços no catálogo, quantidades, subtotais e total automático na sacola.
+Preços usados conforme os valores indicados na conversa: adesivos 6, broches 5, chaveiros 8, marca-páginas 5, pôster A4 8, caneca personalizada 30, ecobag 25 e impressão A4 1 por página.
+IMPORTANTE: preços devem ser confirmados pelo responsável antes da publicação. Imagens ilustrativas não indicam estoque real.
+WhatsApp: preencher LOJA_CONFIG.whatsapp em config.js com DDI+DDD+número; sem isso, o botão não enviará pedidos.
+Publicação: substituir arquivos de mesmo nome no repositório e adicionar os novos; não excluir outros arquivos existentes.

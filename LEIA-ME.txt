@@ -1,4 +1,10 @@
-ACHADINHO DOS ATERZÃOS — V3
-Abra index.html para testar. Para publicar na Vercel envie o ZIP.
-Achi: imagem recortada da prévia visual aprovada; fotos do catálogo são demonstrativas.
-Configure o WhatsApp oficial em config.js antes de divulgar.
+ACHADINHO DOS ATERZÃOS — V4
+
+ATUALIZAÇÃO PELO GITHUB
+1. Extraia este ZIP.
+2. No GitHub, abra o repositório achadinho-dos-aterzaos.
+3. Substitua os arquivos index.html, config.js, app.js, style.css, v3.css e a pasta imagens/; envie também assets/.
+4. Confirme o commit na branch de produção.
+5. A Vercel conectada ao GitHub deve implantar automaticamente a alteração.
+
+IMPORTANTE: As seis fotos enviadas são referências, não comprovação de estoque ou direitos comerciais. Configure o WhatsApp em config.js antes de receber pedidos.

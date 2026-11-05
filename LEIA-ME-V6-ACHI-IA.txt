@@ -1,0 +1,7 @@
+ACHI V6 — ASSISTENTE INTERATIVO GRATUITO
+
+Esta versão usa respostas programadas locais: sem Google, API, chave ou cobrança por mensagem. Não é IA generativa.
+
+Envie todos os arquivos e pastas desta pasta para a raiz do repositório GitHub atual. Substitua index.html e achi.js; preserve os demais arquivos. A Vercel publica após o commit.
+
+O assistente não conhece preços, estoque, frete ou prazos em tempo real; orienta confirmação com a loja. Configure o WhatsApp separadamente no config.js.

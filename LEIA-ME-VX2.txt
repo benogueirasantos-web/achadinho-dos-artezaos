@@ -1,0 +1,9 @@
+ACHI VX2 — INTERPRETADOR DE MENSAGENS
+
+Base: VX1 atualizada.
+Novidades: abreviações e gírias, normalização de acentos e letras repetidas, correção aproximada conservadora de erros de digitação e reconhecimento de intenções já presentes.
+Preserva sacola, galeria, arraste do botão do Achi, produtos e lore de Ateria.
+Sem API paga. Não é inteligência artificial generativa. Não reconhece todos os erros possíveis.
+A meta de milhões de variações é planejamento, NÃO conteúdo implementado.
+
+Para publicar: extraia este ZIP e envie o CONTEÚDO extraído para a raiz do repositório no GitHub. Confirme o commit e teste no site publicado.

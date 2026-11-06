@@ -20,7 +20,7 @@ function loreReply(s){
  if(has(s,['quem criou o achadinho','por que aterzaos','nome da loja','coincidencia']))return 'Esse é o maior mistério, mn! 😳 Por que uma loja da Terra tem o nome do meu povo de Ateria? Talvez alguém tenha atravessado o portal antes de mim...';
  if(has(s,['voce sente saudade','voltar para ateria','quer voltar','sua casa','seu lar']))return 'Sinto saudade de Ateria, sim... 🌌 Mas encontrei pessoas incríveis aqui. Talvez a última parte da aventura seja descobrir onde eu pertenço. ❤️';
  if(has(s,['quem e voce de verdade','sua origem','de onde voce veio','voce e alienigena','voce e de outro mundo','mundo de ateria','o que e ateria','quem e achi']))return pick(loreIntro);
- if(has(s,['conta a historia','conte sua historia','sua historia','conta a lore','lore do achi','proximo capitulo','continua a historia','continue a historia','continua','capitulo','diario de ateria','me conta mais sobre ateria'])){
+ if(has(s,['conta a historia','conte sua historia','sua historia','conta a lore','lore do achi','proximo capitulo','continua a historia','continue a historia','continua','capitulo','diario de ateria','me conta mais sobre ateria','me conta sobre ateria','conta sobre ateria','me conta da ateria'])){
   const explicit=s.match(/capitulo\s*([1-5])/);if(explicit)loreStep=Number(explicit[1])-1;
   const i=loreStep%loreChapters.length;loreSeen.add(i);loreStep=i+1;return loreChapters[i]+'\n\n'+(i===loreChapters.length-1?'Fim dos capítulos disponíveis por enquanto! 🔑 Pergunta pelos fragmentos ou reinicia a história.':'Quer continuar? Digita «próximo capítulo»! 📖');
  }
@@ -28,6 +28,84 @@ function loreReply(s){
 }
 
 const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+// VX2 — interpretação local de mensagens, sem API e sem armazenar dados pessoais.
+const vx2Abbr={
+ 'vc':'voce','vcs':'voces','c':'com','cm':'como','cmg':'comigo','ctg':'contigo',
+ 'q':'que','oq':'o que','qnt':'quanto','qnts':'quantos','qt':'quanto','qto':'quanto','qts':'quantos',
+ 'qnd':'quando','qd':'quando','pq':'porque','pqq':'porque','pk':'porque','pqe':'porque',
+ 'pra':'para','pro':'para o','p':'para','tb':'tambem','tbm':'tambem','tmb':'tambem',
+ 'n':'nao','nn':'nao','naum':'nao','num':'nao','ss':'sim','s':'sim','blz':'beleza',
+ 'vlw':'valeu','flw':'falou','tmj':'tamo junto','obg':'obrigado','obr':'obrigado',
+ 'pfv':'por favor','pf':'por favor','pff':'por favor','plmds':'pelo amor de deus',
+ 'qro':'quero','qr':'quero','qria':'queria','kr':'quero','kero':'quero',
+ 'kd':'cade','cadê':'cade','aq':'aqui','aki':'aqui','aki':'aqui','dps':'depois',
+ 'msg':'mensagem','zap':'whatsapp','wpp':'whatsapp','wts':'whatsapp','whats':'whatsapp',
+ 'insta':'instagram','ft':'foto','fds':'fim de semana','mt':'muito','mto':'muito',
+ 'mta':'muita','mtts':'muitos','msm':'mesmo','agr':'agora','hj':'hoje','amanha':'amanha',
+ 'dnv':'de novo','dnovo':'de novo','mn':'mano','mano':'mano','vei':'mano',
+ 'eh':'e','ehh':'e','ta':'esta','tah':'esta','to':'estou','tô':'estou',
+ 'td':'tudo','tdo':'tudo','tds':'todos','ql':'qual','qais':'quais',
+ 'brx':'broche','broxe':'broche','broxes':'broches','chaveru':'chaveiro',
+ 'chaverio':'chaveiro','chavero':'chaveiro','chavero':'chaveiro',
+ 'adesivu':'adesivo','adesivus':'adesivos','caneka':'caneca','canekas':'canecas',
+ 'perssonalizada':'personalizada','perso':'personalizado','presnte':'presente',
+ 'comprr':'comprar','ateriya':'ateria','aterya':'ateria','atería':'ateria',
+ 'cnta':'conta','conta':'conta','piad':'piada','amg':'amigo',
+ 'precu':'preco','preso':'preco','valorr':'valor','catlogo':'catalogo',
+ 'sacla':'sacola','sacola':'sacola','carrinhu':'carrinho','impresao':'impressao'
+};
+// Apenas conceitos conhecidos: correção conservadora evita transformar nomes próprios.
+const vx2Vocabulary=[
+ 'adesivo','adesivos','broche','broches','chaveiro','chaveiros','caneca','canecas',
+ 'ecobag','ecobags','poster','posteres','marca','pagina','impressao','xerox',
+ 'personalizado','personalizada','personalizar','customizar','presente',
+ 'comprar','compra','pedido','pedidos','sacola','carrinho','quantidade',
+ 'preco','precos','valor','valores','quanto','custa','custam','total',
+ 'entrega','frete','retirada','prazo','pagamento','pix','desconto',
+ 'estoque','disponivel','whatsapp','atendente','catalogo',
+ 'historia','capitulo','proximo','continua','lore','ateria','fragmentos',
+ 'chave','vermelha','segredo','segredos','origem','personagem',
+ 'anime','naruto','manga','musica','rock','kpop','jogo','jogos',
+ 'piada','piadas','engracado','adivinha','charada',
+ 'quero','queria','voces','voce','fazem','faz','tem','sobre','conta',
+ 'ola','oi','salve','obrigado','valeu','tchau','bom','boa','dia','tarde','noite',
+ 'ajuda','ajudar','como','quando','qual','quais','pode','posso','fazer','mostra',
+ 'ver','foto','fotos','duas','dois','tres','quatro','cinco','sim','nao'
+];
+function vx2Distance(a,b){
+ if(Math.abs(a.length-b.length)>2)return 9;
+ const prev=Array.from({length:b.length+1},(_,i)=>i),curr=new Array(b.length+1);
+ for(let i=1;i<=a.length;i++){
+  curr[0]=i;
+  for(let j=1;j<=b.length;j++)curr[j]=Math.min(prev[j]+1,curr[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+  for(let j=0;j<=b.length;j++)prev[j]=curr[j];
+ }
+ return prev[b.length];
+}
+function vx2Interpret(raw){
+ let s=norm(raw).replace(/([a-z])\1{2,}/g,'$1$1');
+ // Expandir abreviações por palavra, sem mexer em números e dados do pedido.
+ let parts=s.split(' ').map(w=>vx2Abbr[w]||w).join(' ').split(' ');
+ parts=parts.map(w=>{
+  if(w.length<4||/^\d+$/.test(w)||vx2Vocabulary.includes(w))return w;
+  let best=w,score=99,ambiguous=false;
+  for(const candidate of vx2Vocabulary){
+   if(Math.abs(candidate.length-w.length)>2||candidate[0]!==w[0])continue;
+   const dist=vx2Distance(w,candidate);
+   if(dist<score){score=dist;best=candidate;ambiguous=false;}
+   else if(dist===score&&dist<=2){ambiguous=true;}
+  }
+  const limit=w.length>=8?2:1;
+  return score<=limit&&!ambiguous?best:w;
+ });
+ s=parts.join(' ');
+ // Expressões recorrentes: sem necessidade de programar resposta para cada grafia.
+ s=s.replace(/\bquanto (?:e|esta|sai)\b/g,'quanto custa')
+    .replace(/\bquanto custa (?:o|a|os|as)\b/g,'quanto custa')
+    .replace(/\bme (?:fala|diz) (?:da|de)\b/g,'me conta sobre')
+    .replace(/\bconta (?:uma|um) piada\b/g,'conta uma piada');
+ return s;
+}
 const words=(s,arr)=>arr.some(w=>new RegExp('(^|\\s)'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(\\s|$)').test(s));
 const has=(s,arr)=>arr.some(w=>s.includes(w));
 const pick=arr=>arr[turn++%arr.length];
@@ -65,7 +143,7 @@ const extras=[
 ];
 function extraAnswer(s){for(const [terms,answers] of extras){if(has(s,terms))return pick(answers)}return null;}
 
-function answer(raw){const s=norm(raw);if(!s)return 'Pode mandar sua dúvida, mn! ❤️';
+function answer(raw){const s=vx2Interpret(raw);if(!s)return 'Pode mandar sua dúvida, mn! ❤️';
 if(s.length>400)return 'Mensagem grandona! 😅 Consegue resumir sua dúvida em uma frase?';
 const lore=loreReply(s);if(lore)return lore;
 if(has(s,['cpf','cartao de credito','senha','numero do cartao','dados bancarios']))return 'Por segurança, não envie senhas, CPF ou dados de cartão aqui, beleza? 🔒 Fale com a loja pelo canal oficial.';
@@ -73,7 +151,7 @@ if(words(s,['oi','ola','eae','salve','hey','opa'])&&s.length<28||has(s,['bom dia
 if(has(s,['obrigad','valeu','vlw','brigad']))return pick(['Tamo junto, mn! ❤️🔥','Imagina! 😎 Precisando, chama o Achi!','É nóis! 🖤 Volta sempre!']);
 if(has(s,['tchau','ate logo','fui','ate mais']))return pick(['Até a próxima, mn! ❤️','Falouuu! 🔥 Bons achadinhos!','Tchauu! 🖤 Quando quiser, tô por aqui.']);
 if(has(s,['quem e voce','seu nome','o que voce faz','voce e uma ia','voce e robo']))return 'Sou o Achi, mascote e assistente virtual do Achadinho! 🤖❤️ Tenho respostas programadas, não sou uma IA que sabe tudo. Mas conheço o catálogo e ajudo com pedidos!';
-if(has(s,['preco','valor','quanto custa','quanto e','quanto sai','quanto fica','tabela de preco']))return price(s);
+if(has(s,['preco','valor','quanto custa','quanto e','quanto sai','quanto fica','tabela de preco','quanto esta','quanto fica tudo']))return price(s);
 if(has(s,['desconto','promocao','cupom','oferta']))return 'Promoções e descontos precisam ser confirmados com a loja, mn! ❤️ Não vou inventar cupom, combinado?';
 if(has(s,['pix','pagamento','dinheiro','cartao','parcelamento','pagar']))return 'As formas de pagamento precisam ser confirmadas com a equipe da loja. 💳 Posso ajudar a montar a sacola primeiro!';
 if(has(s,['entrega','frete','envio','prazo','retirada','chega','endereco','localizacao','horario','onde fica']))return pick(['Entrega, retirada e frete precisam ser combinados com a loja, mn! 📦','Ainda não tenho prazo ou endereço confirmado. ❤️ Melhor falar diretamente com a equipe da loja.']);
@@ -81,11 +159,11 @@ if(has(s,['estoque','disponivel','tem pronta','tem esse','acabou','esgotado']))r
 if(has(s,['whatsapp','contato','atendente','humano','falar com alguem']))return 'Claro! 📲 Monte sua sacola e use o botão do WhatsApp quando o contato estiver configurado. Se ainda não abrir, o número precisa ser cadastrado pela loja.';
 if(has(s,['sacola','carrinho','total da compra','somar pedido','adicionar ao pedido','comprar','finalizar pedido']))return pick(['A sacola soma tudo automaticamente! 🛍️ Escolha os produtos, ajuste as quantidades e confira o subtotal.','Bora montar seu pedido! ❤️ Clique em adicionar nos produtos; a sacola calcula o subtotal. Frete é à parte.']);
 if(has(s,['personaliz','customiz','encomenda','exclusiv','com meu nome','meu desenho'])){topic='personalizado';stage='produto';details={};return pick(['Ameeei! 🎨 Qual produto você quer personalizar: chaveiro, adesivo, broche, caneca ou ecobag?','Bora criar algo único! ❤️ Primeiro me diz: o que você quer personalizar?']);}
-if(has(s,['adesivo','figurinha','sticker'])){topic='adesivo';stage='tema';return pick(['Adesivos são tudo! ✨ Qual tema você curte?','Aeee! ❤️ Quer adesivos de anime, música ou outro tema? Confira os modelos no catálogo!']);}
-if(has(s,['broche','botton','pin'])){topic='broche';stage='tema';return pick(['Broches ficam lindos em mochila! 🖤 Qual estilo você curte?','Escolha boa! 😎 Você prefere um broche mais fofo, alternativo ou de algum personagem?']);}
-if(has(s,['chaveiro','chaves'])){topic='chaveiro';stage='modelo';return pick(['Chaveiros são demais! 🔑 Você prefere pronto ou personalizado?','Aí sim! ❤️ Quer ver os chaveiros do catálogo ou criar um com sua ideia?']);}
+if(has(s,['adesivo','adesivos','figurinha','sticker'])){topic='adesivo';stage='tema';return pick(['Adesivos são tudo! ✨ Qual tema você curte?','Aeee! ❤️ Quer adesivos de anime, música ou outro tema? Confira os modelos no catálogo!']);}
+if(has(s,['broche','broches','botton','pin'])){topic='broche';stage='tema';return pick(['Broches ficam lindos em mochila! 🖤 Qual estilo você curte?','Escolha boa! 😎 Você prefere um broche mais fofo, alternativo ou de algum personagem?']);}
+if(has(s,['chaveiro','chaveiros','chaves'])){topic='chaveiro';stage='modelo';return pick(['Chaveiros são demais! 🔑 Você prefere pronto ou personalizado?','Aí sim! ❤️ Quer ver os chaveiros do catálogo ou criar um com sua ideia?']);}
 if(has(s,['marca pagina','marcador de pagina','livro','leitura'])){topic='marca-páginas';stage='tema';return pick(['Aeee, leitor(a)! 📚 Que tipo de arte você gostaria no marca-páginas?','Marca-páginas deixam a leitura mais divertida! ❤️ Qual tema você gosta?']);}
-if(has(s,['caneca','ecobag','poster','posteres','xerox','impressao'])){topic='produto';stage='tema';return 'Temos essa categoria no catálogo, mn! ❤️ Quer saber o preço ou pensar numa arte? A disponibilidade precisa ser confirmada.';}
+if(has(s,['caneca','canecas','ecobag','ecobags','poster','posteres','xerox','impressao'])){topic='produto';stage='tema';return 'Temos essa categoria no catálogo, mn! ❤️ Quer saber o preço ou pensar numa arte? A disponibilidade precisa ser confirmada.';}
 if(has(s,['produto','catalogo','voces vendem','o que vendem','categorias','loja']))return pick(['Aqui tem adesivos, broches, chaveiros, marca-páginas, pôsteres, ecobags, canecas e serviços de impressão! 🛍️ Qual você quer conhecer?','Bora explorar! 🔥 Veja as categorias no catálogo e me diga qual chamou sua atenção.']);
 if(has(s,['anime','naruto','one piece','personagem','kpop','fofo','gato','desenho','rock','musica','banda'])){if(stage&&topic){details.tema=raw;stage='continuar';return 'Gostei desse tema! 🔥 Você quer uma arte mais colorida, minimalista ou divertida? A loja precisa confirmar se consegue produzir, beleza?';}return 'Curti esse tema! 🔥 Você quer usar essa ideia em adesivo, broche, chaveiro ou outro personalizado?';}
 if(has(s,['presente','aniversario','lembrancinha','surpresa'])){topic='presente';stage='tema';return 'Ameeei a ideia! 🎁 É presente pra alguém que gosta de anime, música, leitura ou outro tema?';}

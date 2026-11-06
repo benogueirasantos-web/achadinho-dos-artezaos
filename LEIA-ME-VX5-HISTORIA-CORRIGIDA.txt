@@ -1,0 +1,1 @@
+VX5 corrigida: a história real da loja foi colocada DEPOIS da história de Ateria e IMEDIATAMENTE ANTES do rodapé. O botão de conversar com Achi sobre a história foi conectado. Banner, imagens, nomes e preços de produtos preservados. Instale enviando o conteúdo extraído deste ZIP para a raiz do repositório GitHub.

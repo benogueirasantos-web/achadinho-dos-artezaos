@@ -1,0 +1,12 @@
+ACHI VX3 — Achadinho dos Aterzãos
+Atualização baseada no pacote VX2 Nome Achi.
+- Achi original enviado pelo usuário no banner e no chat.
+- Banner ajustado para evitar cortes (object-fit: contain).
+- Logo oficial incluída na seção Nossa História.
+- Chat identificado somente como Achi / Falar com Achi.
+- Nova seção sobre a história real do projeto escolar.
+- Botão para conversar com Achi sobre a história da loja.
+- Lore fictícia de Ateria preservada e separada da história real.
+- Sacola e catálogo mantidos.
+Instalação: extraia o ZIP e envie seu CONTEÚDO à raiz do repositório no GitHub.
+Importante: o site publicado não é alterado automaticamente por este arquivo.

@@ -1,0 +1,12 @@
+
+/* VX3: banner sem cortes, marca oficial e história da loja */
+.hero-v3 .hero-mascot{min-height:350px;overflow:visible!important;display:flex;align-items:center;justify-content:center;padding:18px}
+.hero-v3 .hero-mascot img{display:block;width:100%;height:auto;max-height:490px;object-fit:contain!important;object-position:center center!important;filter:drop-shadow(0 12px 25px rgba(0,0,0,.4))}
+.vx3-history{background:linear-gradient(120deg,#151318,#290e16);color:#fff;padding:65px 6%}
+.vx3-history-inner{max-width:1160px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,300px);gap:30px;align-items:center}
+.vx3-history h2{font-size:clamp(28px,4vw,48px);line-height:1.15;margin:12px 0}
+.vx3-history h2 em{color:#ff5265;font-style:normal}
+.vx3-history p{line-height:1.7;color:#f1e9eb}
+.vx3-history img{width:100%;height:auto;object-fit:contain;border-radius:20px}
+.vx3-history small{display:block;margin-top:12px;color:#d6c8ca}
+@media(max-width:700px){.hero-v3 .hero-mascot{min-height:220px;padding:8px}.hero-v3 .hero-mascot img{max-height:350px}.vx3-history-inner{grid-template-columns:1fr}.vx3-history img{max-width:200px;margin:auto}}

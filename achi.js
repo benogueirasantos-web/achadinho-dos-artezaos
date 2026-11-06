@@ -145,6 +145,11 @@ function extraAnswer(s){for(const [terms,answers] of extras){if(has(s,terms))ret
 
 function answer(raw){const s=vx2Interpret(raw);if(!s)return 'Pode mandar sua dúvida, mn! ❤️';
 if(s.length>400)return 'Mensagem grandona! 😅 Consegue resumir sua dúvida em uma frase?';
+if(has(s,['historia da loja','historia do achadinho','como surgiu a loja','como nasceu a loja','quem criou a loja','quem faz parte da equipe','historia real','historia da marca','historia de voces','sobre a loja','nossa historia','fundacao da loja','origem da loja']))return pick([
+'📖 O Achadinho dos Aterzãos começou como um projeto escolar de artesanato e produtos personalizados! A ideia é dar vida à criatividade com adesivos, broches, chaveiros, marca-páginas e muito mais. ❤️',
+'🔥 Nossa equipe tem Valentina na produção, Luiz Henrique no comercial, Kezian no financeiro e Benjamin no marketing! Cada um ajuda o Achadinho a acontecer, mn!',
+'🖤 Nossa frase é: “Dê vida às suas ideias com nossos produtos personalizados!” Quer saber também da minha história fictícia em Ateria? 🔑'
+]);
 const lore=loreReply(s);if(lore)return lore;
 if(has(s,['cpf','cartao de credito','senha','numero do cartao','dados bancarios']))return 'Por segurança, não envie senhas, CPF ou dados de cartão aqui, beleza? 🔒 Fale com a loja pelo canal oficial.';
 if(words(s,['oi','ola','eae','salve','hey','opa'])&&s.length<28||has(s,['bom dia','boa tarde','boa noite']))return pick(['Eae, mn! 😎 Que bom te ver por aqui! Quer conhecer alguma categoria?','Oieee! ❤️ Sou o Achi! Hoje você tá procurando algo pra você ou pra presentear?','Salveee! 🔥 Quer ver produtos, saber preços ou montar um personalizado?','Falaaa! 🖤 Bora achar algo com a sua cara?']);

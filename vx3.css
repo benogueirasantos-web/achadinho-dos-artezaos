@@ -10,3 +10,9 @@
 .vx3-history img{width:100%;height:auto;object-fit:contain;border-radius:20px}
 .vx3-history small{display:block;margin-top:12px;color:#d6c8ca}
 @media(max-width:700px){.hero-v3 .hero-mascot{min-height:220px;padding:8px}.hero-v3 .hero-mascot img{max-height:350px}.vx3-history-inner{grid-template-columns:1fr}.vx3-history img{max-width:200px;margin:auto}}
+
+.hero-banner-vx3{width:100%;max-width:1500px;margin:0 auto;padding:0 18px 32px;background:#09090b}
+.banner-vx3-image{display:block;width:100%;height:auto;object-fit:contain}
+.banner-vx3-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;padding:22px 12px 6px}
+.banner-vx3-actions .primary,.banner-vx3-actions .secondary{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;min-height:48px;padding:12px 22px;border-radius:12px}
+@media(max-width:600px){.hero-banner-vx3{padding:0 0 22px}.banner-vx3-actions{padding:14px 14px 0;gap:10px}.banner-vx3-actions a{flex:1;min-width:145px;text-align:center}}

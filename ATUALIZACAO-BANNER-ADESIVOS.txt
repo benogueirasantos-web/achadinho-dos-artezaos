@@ -1,0 +1,8 @@
+Atualização do Achadinho dos Aterzãos
+- Banner aprovado pelo usuário ocupa a largura superior da página.
+- Botões reais de catálogo e personalização posicionados abaixo do banner.
+- Duas fotos enviadas pelo usuário substituem as imagens dos dois itens de adesivos.
+- Não foram alterados os preços existentes (R$ 6,00 cada), nem os outros itens.
+- A seção Nossa História e o Achi são mantidos.
+- As imagens de adesivos são fotos de referência de terceiros; confirme produtos reais e disponibilidade.
+Instalação: extraia este ZIP, selecione TODOS os arquivos e pastas internos e envie para a raiz do repositório no GitHub. Confirme a substituição dos arquivos e faça Commit changes.

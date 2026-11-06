@@ -1,0 +1,3 @@
+ACHI VX5 — pacote integral baseado na VX4 final aprovada.
+Inclui banner final, historia da loja, imagens de adesivos e nomes originais.
+Para instalar: extrair ZIP e enviar conteudo ao repositorio GitHub.

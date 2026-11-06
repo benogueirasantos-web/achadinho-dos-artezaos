@@ -16,3 +16,5 @@
 .banner-vx3-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;padding:22px 12px 6px}
 .banner-vx3-actions .primary,.banner-vx3-actions .secondary{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;min-height:48px;padding:12px 22px;border-radius:12px}
 @media(max-width:600px){.hero-banner-vx3{padding:0 0 22px}.banner-vx3-actions{padding:14px 14px 0;gap:10px}.banner-vx3-actions a{flex:1;min-width:145px;text-align:center}}
+
+.vx4-history{background:linear-gradient(125deg,#121014,#280a12);color:#fff;padding:72px 6%}.vx4-history-inner{max-width:900px;margin:auto}.vx4-history h2{font-size:clamp(28px,4.5vw,48px);line-height:1.13;margin:14px 0 24px}.vx4-history h2 em{color:#ff2444;font-style:normal}.vx4-history p{font-size:1.08rem;line-height:1.75;color:#e9e1e4}.vx4-history .vx4-quote{color:#fff;font-weight:800;border-left:4px solid #ff1744;padding:10px 18px;margin:25px 0}.vx4-history .vx4-footnote{font-size:.82rem;opacity:.75;margin-top:18px}.vx4-history button{margin-top:8px}

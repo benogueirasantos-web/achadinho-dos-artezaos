@@ -5,8 +5,8 @@ window.LOJA_CONFIG = { whatsapp: '', instagram: '', cidade: 'Canindé - CE' };
 // Catálogo demonstrativo: troque nomes, descrições, imagens e preços pelos produtos reais.
 // Para usar fotos próprias, adicione image: 'imagens/nome-da-foto.jpg' ao item.
 window.PRODUTOS = [
-{id:'adesivo-01',preco:6,image:'imagens/adesivos-aniversario.png',nome:'Cartela de adesivos — aniversário',categoria:'Adesivos',descricao:'Foto ilustrativa de cartela temática de aniversário. Consulte modelos disponíveis.',emoji:'✦',cor:'#ffb8bb'},
-{id:'adesivo-02',preco:6,image:'imagens/adesivos-fofos.png',nome:'Cartela de adesivos — fofos',categoria:'Adesivos',descricao:'Foto ilustrativa de cartelas em tons pastel. Consulte modelos disponíveis.',emoji:'★',cor:'#f5d8ff'},
+{id:'adesivo-01',preco:6,image:'imagens/adesivos-aniversario.png',nome:'Kit de adesivos criativos',categoria:'Adesivos',descricao:'Adesivos para decorar seus objetos.',emoji:'✦',cor:'#ffb8bb'},
+{id:'adesivo-02',preco:6,image:'imagens/adesivos-fofos.png',nome:'Adesivo personalizado',categoria:'Adesivos',descricao:'Uma ideia exclusiva do seu jeito.',emoji:'★',cor:'#f5d8ff'},
 {id:'broche-01',preco:5,image:'imagens/referencia-01.webp',nome:'Broches com estampas alternativas',categoria:'Broches',descricao:'Um detalhe cheio de personalidade.',emoji:'☺',cor:'#ffe5a4'},
 {id:'broche-02',preco:5,image:'imagens/referencia-02.webp',nome:'Broches de cultura pop',categoria:'Broches',descricao:'Para deixar tudo mais pessoal.',emoji:'♥',cor:'#ffbfcf'},
 {id:'chaveiro-01',preco:8,image:'imagens/referencia-03.webp',nome:'Chaveiro de personagem',categoria:'Chaveiros',descricao:'Para acompanhar você por aí.',emoji:'✿',cor:'#bfe4ff'},

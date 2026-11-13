@@ -143,6 +143,35 @@ const extras=[
 ];
 function extraAnswer(s){for(const [terms,answers] of extras){if(has(s,terms))return pick(answers)}return null;}
 
+// VX6: respostas adicionais determinísticas, contexto curto e redução de repetições.
+let vx6LastArea='',vx6LastResponse='',vx6LastSubject='';
+const vx6Knowledge={
+ anime:{terms:['anime','manga','naruto','one piece','dragon ball','jujutsu','demon slayer','kimetsu','attack on titan','otaku'],answers:['Anime é muito massa, mn! 🎌 Qual é o seu favorito? Dá pra pensar em uma arte inspirada no seu estilo, sem prometer reproduzir personagens protegidos.','Curte anime também? 🔥 Me conta se você prefere aventura, comédia ou mistério!','Tem algum anime que marcou você? 👀 Quero saber!']},
+ jogos:{terms:['jogo','jogos','minecraft','roblox','pokemon','free fire','valorant','gamer','videogame','nintendo','playstation'],answers:['Qual jogo você anda curtindo, mn? 🎮','Aí sim, gamer! 🔥 Você prefere aventura, construção ou competição?','Conta aí: qual jogo você jogaria por horas? 😎']},
+ musica:{terms:['musica','musicas','cantor','banda','kpop','rock','funk','rap','playlist','spotify'],answers:['Qual música tá na sua cabeça hoje? 🎧','Eu curto descobrir estilos! 🎵 Você é mais rock, pop, rap ou K-pop?','Se sua vida tivesse trilha sonora, qual música tocaria agora? 😎']},
+ humor:{terms:['piada','piadas','me faz rir','engracado','meme','memes','brincadeira','zoeira'],answers:['Por que o adesivo foi ao médico? Porque estava sem cola-boração! 😭😂','Qual é o cúmulo do chaveiro? Perder as chaves! 🔑😂','O broche disse pra mochila: fica comigo que eu te dou um toque de estilo! 😎']},
+ cotidiano:{terms:['escola','prova','estudar','amizade','amigo','amiga','cansado','triste','feliz','dia ruim','tédio','tedio'],answers:['Eita, mn! ❤️ Quer me contar mais? Tô aqui pra conversar.','Entendi! 😎 Quer conversar sobre isso ou prefere uma distração?','Poxa! 💬 O que aconteceu depois?']},
+ lore:{terms:['ateria','chave vermelha','sete fragmentos','fragmentos','portal','origem do achi'],answers:['Ateria é meu mundo de origem! 🌌 Quer que eu conte a aventura desde o começo? Digita “conta a história”.','A Chave Vermelha abriu o portal entre Ateria e o Achadinho! 🔑 Quer ouvir o próximo capítulo?','Os Sete Fragmentos fazem parte da minha aventura fictícia. ✨ Qual mistério você quer explorar?']}
+};
+function vx6Dialogue(s){
+ if(/^(e ai|eae|oi|ola|opa|salve|bom dia|boa tarde|boa noite)[!?. ]*$/.test(s))return 'Eae, mn! 🔥 Sou o Achi! Quer falar de produtos, jogos, música ou ouvir a história de Ateria?';
+ if(/^(obrigad[oa]|valeu|vlw|tmj|brigad[oa])[!?. ]*$/.test(s))return 'Tamo junto, mn! ❤️ Precisando, é só chamar!';
+ if(/^(e voce|e vc|qual o seu|e o seu)[!?. ]*$/.test(s)&&vx6LastArea)return 'Boa pergunta! 😎 A gente tava falando de '+vx6LastSubject+'. Qual parte você mais curte?';
+ for(const [area,entry] of Object.entries(vx6Knowledge)){
+  if(entry.terms.some(term=>s===term||s.includes(term))){
+   let candidates=entry.answers.filter(x=>x!==vx6LastResponse);
+   let idx=(turn+area.length+s.length)%candidates.length;
+   let answer=candidates[idx]||entry.answers[0];
+   vx6LastArea=area;vx6LastSubject=area;vx6LastResponse=answer;
+   return answer;
+  }
+ }
+ if(vx6LastArea&&/^(sim|isso|pode ser|claro|conta|continua|e depois)[!?. ]*$/.test(s)){
+  if(vx6LastArea==='lore')return 'Bora! 🔑 Digita “conta a história” para começar a aventura completa!';
+  return 'Bora, mn! 😎 Me diz mais sobre '+vx6LastSubject+'!';
+ }
+ return null;
+}
 function answer(raw){const s=vx2Interpret(raw);if(!s)return 'Pode mandar sua dúvida, mn! ❤️';
 if(s.length>400)return 'Mensagem grandona! 😅 Consegue resumir sua dúvida em uma frase?';
 if(has(s,['historia da loja','historia do achadinho','como surgiu a loja','como nasceu a loja','quem criou a loja','quem faz parte da equipe','historia real','historia da marca','historia de voces','sobre a loja','nossa historia','fundacao da loja','origem da loja']))return pick([
@@ -170,6 +199,7 @@ if(has(s,['chaveiro','chaveiros','chaves'])){topic='chaveiro';stage='modelo';ret
 if(has(s,['marca pagina','marcador de pagina','livro','leitura'])){topic='marca-páginas';stage='tema';return pick(['Aeee, leitor(a)! 📚 Que tipo de arte você gostaria no marca-páginas?','Marca-páginas deixam a leitura mais divertida! ❤️ Qual tema você gosta?']);}
 if(has(s,['caneca','canecas','ecobag','ecobags','poster','posteres','xerox','impressao'])){topic='produto';stage='tema';return 'Temos essa categoria no catálogo, mn! ❤️ Quer saber o preço ou pensar numa arte? A disponibilidade precisa ser confirmada.';}
 if(has(s,['produto','catalogo','voces vendem','o que vendem','categorias','loja']))return pick(['Aqui tem adesivos, broches, chaveiros, marca-páginas, pôsteres, ecobags, canecas e serviços de impressão! 🛍️ Qual você quer conhecer?','Bora explorar! 🔥 Veja as categorias no catálogo e me diga qual chamou sua atenção.']);
+const vx6Extra=vx6Dialogue(s);if(vx6Extra)return vx6Extra;
 if(has(s,['anime','naruto','one piece','personagem','kpop','fofo','gato','desenho','rock','musica','banda'])){if(stage&&topic){details.tema=raw;stage='continuar';return 'Gostei desse tema! 🔥 Você quer uma arte mais colorida, minimalista ou divertida? A loja precisa confirmar se consegue produzir, beleza?';}return 'Curti esse tema! 🔥 Você quer usar essa ideia em adesivo, broche, chaveiro ou outro personalizado?';}
 if(has(s,['presente','aniversario','lembrancinha','surpresa'])){topic='presente';stage='tema';return 'Ameeei a ideia! 🎁 É presente pra alguém que gosta de anime, música, leitura ou outro tema?';}
 if(has(s,['qualidade','material','tamanho','medida','resistente','lavar','durabilidade']))return 'Os materiais e tamanhos podem variar conforme o produto. ❤️ Veja a descrição no catálogo ou confirme com a loja antes de comprar.';

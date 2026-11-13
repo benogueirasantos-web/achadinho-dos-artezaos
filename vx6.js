@@ -1,0 +1,1 @@
+(()=>{'use strict';const footer=document.querySelector('footer');if(!footer)return;const col=[...footer.querySelectorAll('div')].find(x=>x.querySelector('strong')?.textContent==='Explore');if(col&&!col.querySelector('a[href="#materiais-loja"]')){const a=document.createElement('a');a.href='#materiais-loja';a.textContent='Cartão e panfleto';col.appendChild(a)}})();

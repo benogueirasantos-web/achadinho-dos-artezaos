@@ -1,0 +1,16 @@
+ACHI VX6 — Atualização incremental sobre a VX5 corrigida
+
+IMPLEMENTADO:
+- Diálogos adicionais por tema (anime, jogos, música, humor, cotidiano, Ateria), saudações e agradecimentos.
+- Contexto curto de conversa e redução simples de respostas repetidas; preserva o chatbot e catálogo anteriores.
+- Cartão de visita (frente e verso) e panfleto enviados pelo usuário apresentados em uma galeria no final do site, antes do rodapé.
+- História real da loja, Achi original, banner, imagens dos adesivos, nomes e preços da VX5 preservados.
+- Telefones de exemplo divergentes nos PDFs NÃO foram adotados como contato oficial.
+
+NÃO IMPLEMENTADO / NÃO COMPROVADO:
+- 1 bilhão de respostas únicas por área: meta de longo prazo, não funcionalidade entregue.
+- Memória permanente entre visitas, IA generativa, aprendizagem automática, disponibilidade em tempo real.
+- Alterações gráficas nos PDFs originais (apenas foram convertidos para exibição no site).
+
+PUBLICAÇÃO:
+Extraia o ZIP e envie todos os arquivos e pastas internos à raiz do repositório GitHub via Add file > Upload files > Commit changes. Não envie o ZIP em si. Confira depois o site em computador e celular.

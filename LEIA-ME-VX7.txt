@@ -1,0 +1,1 @@
+VX7 — Ícone da aba (favicon) AA com coroa vermelha. Base: VX6. Arquivos adicionados: favicon.svg, favicon.ico, apple-touch-icon.png. index.html atualizado. Extraia e envie o conteúdo à raiz do repositório no GitHub.

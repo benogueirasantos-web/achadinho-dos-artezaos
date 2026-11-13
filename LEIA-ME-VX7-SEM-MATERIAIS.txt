@@ -1,0 +1,7 @@
+VX7 revisada: removidos os cartões de visita e panfletos antigos da galeria, e a seção dos novos materiais. Os cinco arquivos de imagem correspondentes não integram este pacote. Demais recursos, inclusive favicon, permanecem.
+IMPORTANTE: arquivos antigos que já existem no GitHub não são excluídos automaticamente ao fazer upload. Exclua manualmente os cinco arquivos listados abaixo do repositório para uma limpeza completa:
+assets/galeria/loja-5.webp
+assets/galeria/loja-6.webp
+imagens/cartao-visita-1.webp
+imagens/cartao-visita-2.webp
+imagens/panfleto-1.webp

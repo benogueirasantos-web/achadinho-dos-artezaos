@@ -1,0 +1,12 @@
+ACHI VX8 — melhorias de loja e sacola
+- Número da quantidade com alto contraste, destaque e botões maiores.
+- Filtro por preço, ordenação e favoritos salvos localmente.
+- Busca por nome, descrição e categoria já existente, com indicação mais clara.
+- Campo de personalização no detalhe do produto, vinculado à sacola.
+- Informações sobre como pedir e confirmação pelo atendimento.
+- Achi mantém seu sistema de respostas anterior; não foi adicionada IA externa.
+- Fotos, nomes e preços originais preservados.
+- Catálogo e sacola com fotos, total, notas, persistência e WhatsApp já existentes preservados.
+- Galeria de imagens já existente preservada; não foram inventadas fotos adicionais.
+- WhatsApp precisa ser configurado com número real em config.js.
+Instalação: extraia e envie todo o conteúdo para a raiz do repositório GitHub.

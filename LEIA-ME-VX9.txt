@@ -1,0 +1,13 @@
+ACHI VX9 — Atualização baseada na VX8
+Incluído:
+1. Status de disponibilidade por produto, opcional via config.js: disponibilidade: 'disponivel', 'encomenda' ou 'esgotado'. Sem configuração, exibe 'Consultar disponibilidade'. Não presume estoque.
+2. Ampliar foto do produto existente; não inventa imagens.
+3. Perguntas frequentes com orientações de compra.
+4. Compartilhamento de links diretos por produto (?produto=ID), com Web Share API e cópia como alternativa.
+5. Prazo de produção opcional via campo prazoProducao no produto. Sem informação, indica que será combinado.
+6. Aviso de confirmação do pedido somente após atendimento.
+7. Acessibilidade: foco visível, alvos de toque e respeito a redução de movimento.
+8. Desempenho: imagens do catálogo já usam lazy-loading; banner priorizado e decodificação assíncrona.
+Mantidos: todos os nomes, preços, imagens, logo, banner, Achi, sacola, filtros, favoritos e WhatsApp.
+ATENÇÃO: nenhum status de estoque ou prazo foi inventado. Preencha somente com informações reais.
+Instale extraindo o ZIP e enviando os arquivos da pasta para a raiz do GitHub. O commit aciona o deploy Vercel.

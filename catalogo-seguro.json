@@ -1,0 +1,57 @@
+[
+  {
+    "id": "adesivo-01",
+    "preco": 6.0,
+    "nome": "Kit de adesivos criativos"
+  },
+  {
+    "id": "adesivo-02",
+    "preco": 6.0,
+    "nome": "Adesivo personalizado"
+  },
+  {
+    "id": "broche-01",
+    "preco": 5.0,
+    "nome": "Broches com estampas alternativas"
+  },
+  {
+    "id": "broche-02",
+    "preco": 5.0,
+    "nome": "Broches de cultura pop"
+  },
+  {
+    "id": "chaveiro-01",
+    "preco": 8.0,
+    "nome": "Chaveiro de personagem"
+  },
+  {
+    "id": "chaveiro-02",
+    "preco": 8.0,
+    "nome": "Chaveiro de estilo alternativo"
+  },
+  {
+    "id": "marca-01",
+    "preco": 5.0,
+    "nome": "Marca-página artesanal"
+  },
+  {
+    "id": "personal-01",
+    "preco": 30.0,
+    "nome": "Caneca personalizada"
+  },
+  {
+    "id": "poster-v7",
+    "preco": 8.0,
+    "nome": "Pôster A4 — inspiração de decoração"
+  },
+  {
+    "id": "ecobag-v7",
+    "preco": 25.0,
+    "nome": "Ecobag personalizada — inspiração Rock Star"
+  },
+  {
+    "id": "impressao-v7",
+    "preco": 1.0,
+    "nome": "Impressão / Xerox A4 — serviço"
+  }
+]

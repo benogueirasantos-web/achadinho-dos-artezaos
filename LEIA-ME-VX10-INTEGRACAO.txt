@@ -1,0 +1,10 @@
+ACHI VX10 — INTEGRAÇÃO COM ACHI GESTÃO
+
+1. Faça upload do CONTEÚDO desta pasta na raiz do repositório da loja, somente depois de configurar a chave secreta.
+2. Na Vercel do projeto DA LOJA (não ACHI GESTÃO), Settings > Environment Variables: SUPABASE_SECRET_KEY = chave secreta do Supabase (sb_secret_...). Nunca coloque essa chave em config.js, GitHub, frontend ou conversa. Alternativamente SUPABASE_SERVICE_ROLE_KEY para projetos legados.
+3. Faça redeploy da loja para carregar a variável. A rota /api/pedido funciona apenas em ambiente serverless Vercel, não abrindo index.html localmente.
+4. Teste um pedido real controlado e confirme que aparece no ACHI GESTÃO. O painel ACHI GESTÃO V1 NÃO precisa ser alterado.
+5. Catálogo e preços autoritativos do servidor: catalogo-seguro.json. Ao alterar preços no config.js, atualize também este JSON antes de publicar.
+6. IMPORTANTE: proteção contra abuso: esta primeira versão inclui validação, origem e campo oculto, mas NÃO tem limitação de requisições persistente ou CAPTCHA. Para abertura ampla ao público, adicionar rate limiting por IP e CAPTCHA (Turnstile) e considerar inserção transacional.
+7. O endpoint aceita somente a origem https://achadinho-dos-artezao.vercel.app. Se mudar o domínio, atualizar ORIGENS em api/pedido.js.
+8. Mantenha a VX9 como backup. A chave secreta nunca deve ser enviada por chat.

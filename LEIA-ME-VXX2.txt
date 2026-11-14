@@ -1,0 +1,7 @@
+ACHADINHO VXX2 — atualização incremental da VXX1.
+Preserva identidade, catálogo, preços e ACHI GESTÃO.
+Novidades: kits via sacola, atalhos de coleções, personalização já existente na sacola, consulta de status com número + WhatsApp, recorte da foto original do marca-páginas.
+A consulta retorna apenas status e pagamento, sem dados pessoais. A limitação por IP em memória é básica; antes de alto volume, configurar rate limiting persistente e proteção anti-bot.
+O Achi original permanece inalterado para preservar a experiência.
+A integração de pedidos depende das variáveis SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY na Vercel.
+Não inserir chaves secretas no GitHub.

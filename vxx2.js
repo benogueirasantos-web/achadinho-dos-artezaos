@@ -1,0 +1,8 @@
+(()=>{'use strict';
+function openCat(cat){const tiles=[...document.querySelectorAll('[data-open-cat]')];const tile=tiles.find(el=>el.getAttribute('data-open-cat')===cat);document.getElementById('produtos')?.scrollIntoView({behavior:'smooth'});if(tile)tile.click();}
+document.getElementById('vxx2-kit')?.addEventListener('click',()=>{document.getElementById('produtos')?.scrollIntoView({behavior:'smooth'});});
+document.getElementById('vxx2-personal')?.addEventListener('click',()=>openCat('Personalizados'));
+document.querySelectorAll('[data-vxx2-cat]').forEach(b=>b.addEventListener('click',()=>openCat(b.dataset.vxx2Cat)));
+const form=document.getElementById('vxx2-track-form'),out=document.getElementById('vxx2-result');
+form?.addEventListener('submit',async e=>{e.preventDefault();const numero=document.getElementById('vxx2-order').value.trim(),telefone=document.getElementById('vxx2-phone').value.replace(/\D/g,'');const whatsapp=telefone.startsWith('55')?telefone:'55'+telefone;if(!/^\d{1,15}$/.test(numero)||!/^55\d{10,11}$/.test(whatsapp)){out.textContent='Confira o número do pedido e o WhatsApp com DDD.';return;}const btn=form.querySelector('button');btn.disabled=true;out.textContent='Consultando...';try{const response=await fetch('/api/acompanhar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({numero,whatsapp})});const data=await response.json();if(!response.ok)throw Error(data.erro||'Não foi possível consultar.');out.textContent='Pedido #'+numero+' — '+data.status+'. Pagamento: '+data.pagamento+'.';}catch(err){out.textContent=err.message;}finally{btn.disabled=false;}});
+})();

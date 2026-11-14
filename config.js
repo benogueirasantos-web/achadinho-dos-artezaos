@@ -11,7 +11,7 @@ window.PRODUTOS = [
 {id:'broche-02',preco:5,image:'imagens/referencia-02.webp',nome:'Broches de cultura pop',categoria:'Broches',descricao:'Para deixar tudo mais pessoal.',emoji:'♥',cor:'#ffbfcf'},
 {id:'chaveiro-01',preco:8,image:'imagens/referencia-03.webp',nome:'Chaveiro de personagem',categoria:'Chaveiros',descricao:'Para acompanhar você por aí.',emoji:'✿',cor:'#bfe4ff'},
 {id:'chaveiro-02',preco:8,image:'imagens/referencia-04.webp',nome:'Chaveiro de estilo alternativo',categoria:'Chaveiros',descricao:'Seu nome ou ideia em um chaveiro.',emoji:'✧',cor:'#d8ccff'},
-{id:'marca-01',preco:5,image:'imagens/referencia-05.webp',nome:'Marca-página artesanal',categoria:'Marca-páginas',descricao:'Para deixar a leitura mais divertida.',emoji:'▤',cor:'#c9f3db'},
+{id:'marca-01',preco:5,image:'imagens/marca-pagina-vxx2.webp',nome:'Marca-página artesanal',categoria:'Marca-páginas',descricao:'Para deixar a leitura mais divertida.',emoji:'▤',cor:'#c9f3db'},
 {id:'personal-01',preco:30,image:'imagens/referencia-06.webp',nome:'Caneca personalizada',categoria:'Personalizados',descricao:'Caneca personalizada sob encomenda; confirme a arte e a disponibilidade.',emoji:'♡',cor:'#ffd9b8'}
 ,{id:'poster-v7',preco:8,image:'imagens/posteres-decorativos-v8.webp',nome:'Pôster A4 — inspiração de decoração',categoria:'Pôsteres',descricao:'Imagem de referência de pôsteres decorativos. Modelos, direitos de uso e disponibilidade sob consulta.',emoji:'▧',cor:'#ffd4da'}
 ,{id:'ecobag-v7',preco:25,image:'imagens/ecobag-rock-star-v8.webp',nome:'Ecobag personalizada — inspiração Rock Star',categoria:'Personalizados',descricao:'Imagem ilustrativa de ecobag Rock Star. Arte, produção e disponibilidade sob consulta.',emoji:'▣',cor:'#f8c2d0'}
